@@ -65,6 +65,8 @@ module OpenAI
         end
 
         parser.feed(chunk) do |_type, data|
+          byebug
+          
           user_proc.call(JSON.parse(data)) unless data == "[DONE]"
         end
       end
